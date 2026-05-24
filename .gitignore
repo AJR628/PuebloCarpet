@@ -1,0 +1,29 @@
+# Mac OS
+.DS_Store
+
+# Editor folders/files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+npm-debug.log*
+
+# Dependencies (in case Node tooling is added later)
+node_modules/
+
+# Build output (in case a build step is added later)
+dist/
+build/
+.cache/
+
+# Environment / local config
+.env
+.env.local
+.env.*.local
+
+# Netlify
+.netlify/
