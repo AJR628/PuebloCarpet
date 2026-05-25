@@ -33,6 +33,23 @@
   .logo-text { font-family: var(--serif); font-weight: 700; font-size: 1.15rem; color: var(--ink); letter-spacing: -0.01em; line-height: 1; }
   .logo-text small { display: block; font-family: var(--sans); font-weight: 500; font-size: 0.7rem; color: var(--muted); margin-top: 2px; letter-spacing: 0.05em; text-transform: uppercase; }
 
+  .header-right { display: flex; align-items: center; gap: 1.25rem; }
+
+  .phone-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--brand);
+    text-decoration: none;
+    padding: 0.3rem 0;
+    white-space: nowrap;
+    transition: color 0.15s ease;
+  }
+  .phone-link:hover { color: var(--brand-dark); }
+  .phone-link svg { width: 16px; height: 16px; flex-shrink: 0; }
+
   .nav-toggle { display: none; background: transparent; border: none; padding: 0.4rem; cursor: pointer; color: var(--ink); border-radius: 6px; }
   .nav-toggle:hover { background: var(--surface-2); }
   .nav-toggle svg { width: 26px; height: 26px; display: block; }
@@ -126,6 +143,8 @@
 
   @media (max-width: 860px) {
     .nav-toggle { display: inline-flex; align-items: center; justify-content: center; }
+    .header-right { gap: 0.65rem; }
+    .phone-link { font-size: 0.95rem; }
     .header-nav {
       position: absolute;
       top: 100%;
