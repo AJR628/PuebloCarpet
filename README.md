@@ -57,14 +57,17 @@ Static HTML, so just edit `index.html` and push to GitHub. Netlify auto-deploys 
 
 ## TODOs (in priority order)
 
-1. Add phone number once Google Voice (719) is set up — search and replace `contact@pueblocarpetpros.com` references with phone where appropriate
+1. Add phone number once Google Voice (719) is set up — search and replace existing email-only CTAs with phone where appropriate (header button, hero CTA pair, contact section)
 2. Build the cost guide page (`/carpet-cleaning-cost-pueblo/`) — high-volume informational query, weak Map Pack pressure
 3. Build the dedicated commercial page (`/commercial-carpet-cleaning-pueblo/`) — Pueblo commercial competition is 1/10
 4. Build the pet stain removal page (`/pet-stain-removal-pueblo/`)
 5. Build neighborhood pages for Bessemer, Pueblo West, Belmont, Mesa Junction
 6. Submit to local citation directories: Yelp, Yellow Pages, BBB, Hotfrog, Citysearch, MerchantCircle, Bing Places
-7. Submit sitemap to Google Search Console and Bing Webmaster Tools
-8. Identify and reach out to 1-2 Pueblo carpet operators for lead-handoff partnership
+7. Identify and reach out to 1-2 Pueblo carpet operators for lead-handoff partnership
+
+## Recent changes
+
+**v5 (May 24, 2026):** Expanded service offerings — added Area & Oriental Rug Cleaning and Tile & Grout Cleaning as both overview cards and detailed long-form sections. Added a new "Service Details" section between "Why Carpet Cleaning Matters" and "How It Works," with one substantive multi-paragraph block per service plus a custom-generated image per service. Updated meta descriptions and Open Graph tags to reflect the broader service offering.
 
 ## SEO baseline
 
