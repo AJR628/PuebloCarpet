@@ -60,237 +60,25 @@
 }
 </script>
 
-<style>
-  :root {
-    --bg: #fcfaf6;
-    --surface: #ffffff;
-    --surface-2: #f5f1e8;
-    --ink: #1a2530;
-    --ink-2: #2f3d49;
-    --muted: #6b7480;
-    --rule: #e8e2d5;
-    --rule-2: #f0ecdf;
-    --brand: #0e6e6e;
-    --brand-dark: #0b5757;
-    --brand-tint: #d6ebe8;
-    --accent: #dd6b3d;
-    --accent-dark: #b9572f;
-    --serif: 'Bricolage Grotesque', Georgia, serif;
-    --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body { background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 17px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
-  img { max-width: 100%; height: auto; display: block; }
-  a { color: var(--brand); text-decoration: none; }
-  a:hover { color: var(--brand-dark); }
-
-  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 5%; }
-
-  /* HEADER */
-  .header { background: var(--surface); border-bottom: 1px solid var(--rule); position: sticky; top: 0; z-index: 100; padding: 0.85rem 0; box-shadow: 0 1px 0 rgba(0,0,0,0.02); }
-  .header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
-  .logo { display: flex; align-items: center; gap: 0.6rem; }
-  .logo-mark { width: 38px; height: 38px; background: var(--brand); display: flex; align-items: center; justify-content: center; border-radius: 8px; }
-  .logo-mark svg { width: 22px; height: 22px; fill: #fff; }
-  .logo-text { font-family: var(--serif); font-weight: 700; font-size: 1.15rem; color: var(--ink); letter-spacing: -0.01em; line-height: 1; }
-  .logo-text small { display: block; font-family: var(--sans); font-weight: 500; font-size: 0.7rem; color: var(--muted); margin-top: 2px; letter-spacing: 0.05em; text-transform: uppercase; }
-  .header-nav { display: flex; align-items: center; gap: 1.5rem; }
-  .header-nav a.nav-link { font-size: 0.92rem; color: var(--ink-2); font-weight: 500; }
-  .header-nav a.nav-link:hover { color: var(--brand); }
-  @media (max-width: 720px) { .header-nav a.nav-link { display: none; } }
-  .phone-btn { background: var(--brand); color: #fff !important; padding: 0.55rem 1rem; font-weight: 600; font-size: 0.92rem; border-radius: 6px; display: flex; align-items: center; gap: 0.4rem; }
-  .phone-btn:hover { background: var(--brand-dark); color: #fff !important; }
-  .phone-btn svg { width: 16px; height: 16px; }
-
-  /* HERO */
-  .hero { padding: 4rem 0 4.5rem; position: relative; overflow: hidden; }
-  .hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 3rem; align-items: center; }
-  @media (max-width: 820px) { .hero-grid { grid-template-columns: 1fr; gap: 2rem; } }
-  .hero-eyebrow { display: inline-block; font-size: 0.78rem; font-weight: 600; color: var(--brand); letter-spacing: 0.1em; text-transform: uppercase; background: var(--brand-tint); padding: 0.35rem 0.85rem; border-radius: 999px; margin-bottom: 1.25rem; }
-  .hero h1 { font-family: var(--serif); font-weight: 700; font-size: clamp(2.2rem, 5vw, 3.6rem); line-height: 1.05; letter-spacing: -0.025em; color: var(--ink); margin-bottom: 1.1rem; }
-  .hero h1 span { color: var(--brand); }
-  .hero .sub { font-size: 1.18rem; color: var(--ink-2); line-height: 1.55; margin-bottom: 1.75rem; max-width: 540px; }
-  .hero-ctas { display: flex; flex-wrap: wrap; gap: 0.85rem; align-items: center; margin-bottom: 1.5rem; }
-  .btn-primary { background: var(--accent); color: #fff; padding: 0.95rem 1.65rem; font-weight: 600; font-size: 1rem; border-radius: 8px; border: none; cursor: pointer; transition: background 0.15s; display: inline-flex; align-items: center; gap: 0.5rem; }
-  .btn-primary:hover { background: var(--accent-dark); color: #fff; }
-  .btn-secondary { background: transparent; color: var(--ink); padding: 0.9rem 1.4rem; font-weight: 600; font-size: 1rem; border: 2px solid var(--ink); border-radius: 8px; display: inline-flex; align-items: center; gap: 0.5rem; }
-  .btn-secondary:hover { background: var(--ink); color: #fff; }
-  .hero-trust { display: flex; gap: 1.5rem; flex-wrap: wrap; font-size: 0.88rem; color: var(--muted); }
-  .hero-trust span { display: inline-flex; align-items: center; gap: 0.4rem; }
-  .hero-trust svg { width: 16px; height: 16px; color: var(--brand); }
-  .hero-image { border-radius: 14px; overflow: hidden; box-shadow: 0 20px 50px -20px rgba(14, 110, 110, 0.25), 0 6px 20px -6px rgba(14, 110, 110, 0.15); }
-  .hero-image img { width: 100%; aspect-ratio: 16/10; object-fit: cover; }
-
-  /* SECTION COMMON */
-  section { padding: 4.5rem 0; }
-  .section-eyebrow { display: inline-block; font-size: 0.78rem; font-weight: 600; color: var(--brand); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.75rem; }
-  h2 { font-family: var(--serif); font-weight: 700; font-size: clamp(1.8rem, 3.5vw, 2.6rem); line-height: 1.1; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 0.85rem; }
-  .section-lead { font-size: 1.1rem; color: var(--ink-2); max-width: 720px; line-height: 1.55; margin-bottom: 2rem; }
-
-  /* TRUST BAR */
-  .trust-bar { background: var(--surface); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 1.25rem 0; }
-  .trust-bar-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; align-items: center; }
-  @media (max-width: 720px) { .trust-bar-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; } }
-  .trust-item { display: flex; align-items: center; gap: 0.65rem; }
-  .trust-item svg { width: 24px; height: 24px; color: var(--brand); flex-shrink: 0; }
-  .trust-item div { line-height: 1.3; }
-  .trust-item strong { display: block; font-size: 0.92rem; color: var(--ink); font-weight: 600; }
-  .trust-item small { display: block; font-size: 0.78rem; color: var(--muted); }
-
-  /* SERVICES */
-  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 2rem; }
-  @media (max-width: 980px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 580px) { .services-grid { grid-template-columns: 1fr; } }
-  .service-card { background: var(--surface); border: 1px solid var(--rule); border-radius: 14px; padding: 2rem 1.85rem; transition: border-color 0.15s, box-shadow 0.15s; }
-  .service-card:hover { border-color: var(--brand); box-shadow: 0 10px 30px -10px rgba(14, 110, 110, 0.15); }
-  .service-icon { width: 48px; height: 48px; background: var(--brand-tint); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
-  .service-icon svg { width: 26px; height: 26px; color: var(--brand); }
-  .service-card h3 { font-family: var(--serif); font-weight: 600; font-size: 1.3rem; color: var(--ink); margin-bottom: 0.5rem; line-height: 1.2; }
-  .service-card p { font-size: 0.97rem; color: var(--ink-2); line-height: 1.55; margin-bottom: 0.85rem; }
-  .service-card .price { font-size: 0.85rem; color: var(--muted); font-weight: 500; }
-  .service-card .price strong { color: var(--brand); font-weight: 700; }
-
-  /* SERVICE DETAIL (long-form sections with images) */
-  .service-details { background: var(--bg); }
-  .service-detail { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; margin-bottom: 4rem; }
-  .service-detail:last-of-type { margin-bottom: 0; }
-  .service-detail.flipped .sd-image { order: 2; }
-  .service-detail.flipped .sd-content { order: 1; }
-  .sd-image { border-radius: 14px; overflow: hidden; box-shadow: 0 15px 40px -15px rgba(14, 110, 110, 0.2); }
-  .sd-image img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
-  .sd-content .sd-eyebrow { display: inline-block; font-size: 0.72rem; font-weight: 600; color: var(--brand); letter-spacing: 0.1em; text-transform: uppercase; background: var(--brand-tint); padding: 0.3rem 0.75rem; border-radius: 999px; margin-bottom: 0.85rem; }
-  .sd-content h3 { font-family: var(--serif); font-weight: 700; font-size: 1.7rem; color: var(--ink); margin-bottom: 1rem; line-height: 1.15; letter-spacing: -0.01em; }
-  .sd-content p { font-size: 1rem; line-height: 1.65; margin-bottom: 0.9rem; color: var(--ink-2); }
-  .sd-content .sd-cta { margin-top: 1.25rem; display: inline-flex; align-items: center; gap: 0.4rem; color: var(--brand); font-weight: 600; font-size: 0.95rem; }
-  .sd-content .sd-cta:hover { color: var(--accent); }
-  .sd-content .sd-cta svg { width: 14px; height: 14px; transition: transform 0.15s; }
-  .sd-content .sd-cta:hover svg { transform: translateX(2px); }
-  @media (max-width: 820px) {
-    .service-detail, .service-detail.flipped { grid-template-columns: 1fr; gap: 1.5rem; margin-bottom: 3rem; }
-    .service-detail.flipped .sd-image, .service-detail.flipped .sd-content { order: initial; }
-  }
-
-  /* WHY US */
-  .why-us { background: var(--surface-2); }
-  .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 2rem; }
-  @media (max-width: 720px) { .why-grid { grid-template-columns: 1fr; } }
-  .why-item { background: var(--surface); padding: 1.5rem; border-radius: 12px; border-left: 3px solid var(--brand); }
-  .why-item h4 { font-family: var(--serif); font-weight: 600; font-size: 1.05rem; color: var(--ink); margin-bottom: 0.35rem; }
-  .why-item p { font-size: 0.92rem; color: var(--ink-2); line-height: 1.5; }
-
-  /* HOW IT WORKS */
-  .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 2.5rem; position: relative; }
-  @media (max-width: 720px) { .steps-grid { grid-template-columns: 1fr; } }
-  .steps-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 2.5rem; }
-  @media (max-width: 980px) { .steps-grid-4 { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; } }
-  @media (max-width: 520px) { .steps-grid-4 { grid-template-columns: 1fr; } }
-  .step { background: var(--surface); border: 1px solid var(--rule); border-radius: 14px; padding: 2rem 1.75rem; position: relative; }
-  .step-num { position: absolute; top: -18px; left: 1.75rem; background: var(--brand); color: #fff; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-weight: 700; font-size: 1.05rem; }
-  .step h4 { font-family: var(--serif); font-weight: 600; font-size: 1.25rem; color: var(--ink); margin: 0.5rem 0 0.6rem; }
-  .step p { font-size: 0.97rem; color: var(--ink-2); line-height: 1.55; }
-
-  /* PRICING */
-  .pricing-table { background: var(--surface); border: 1px solid var(--rule); border-radius: 14px; overflow: hidden; margin-top: 2rem; }
-  .pricing-row { display: grid; grid-template-columns: 1fr auto; padding: 1.15rem 1.75rem; border-bottom: 1px solid var(--rule-2); align-items: center; gap: 1rem; }
-  .pricing-row:last-of-type { border-bottom: none; }
-  .pricing-row .item { font-weight: 500; color: var(--ink); font-size: 1rem; }
-  .pricing-row .item small { display: block; color: var(--muted); font-size: 0.82rem; font-weight: 400; margin-top: 2px; }
-  .pricing-row .price-val { font-family: var(--serif); font-weight: 700; color: var(--brand); font-size: 1.2rem; }
-  .pricing-row .price-val small { font-size: 0.7rem; color: var(--muted); font-weight: 500; margin-right: 4px; }
-  .pricing-note { background: var(--brand-tint); padding: 1.15rem 1.75rem; font-size: 0.92rem; color: var(--ink-2); }
-  .pricing-note strong { color: var(--brand-dark); }
-
-  /* SERVICE AREA */
-  .area-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 2.5rem; align-items: start; margin-top: 2rem; }
-  @media (max-width: 720px) { .area-grid { grid-template-columns: 1fr; gap: 1.5rem; } }
-  .area-list { background: var(--surface); border: 1px solid var(--rule); border-radius: 14px; padding: 2rem; }
-  .area-list h3 { font-family: var(--serif); font-weight: 600; font-size: 1.1rem; color: var(--ink); margin-bottom: 1rem; }
-  .area-list ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem 1rem; }
-  .area-list ul li { display: flex; align-items: center; gap: 0.4rem; font-size: 0.94rem; color: var(--ink-2); }
-  .area-list ul li::before { content: ''; width: 6px; height: 6px; background: var(--brand); border-radius: 50%; flex-shrink: 0; }
-
-  /* TESTIMONIALS */
-  .testimonials { background: var(--surface-2); }
-  .test-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 2.5rem; }
-  @media (max-width: 820px) { .test-grid { grid-template-columns: 1fr; } }
-  .test-card { background: var(--surface); padding: 1.75rem; border-radius: 12px; border-top: 3px solid var(--accent); }
-  .test-stars { color: var(--accent); font-size: 1rem; letter-spacing: 2px; margin-bottom: 0.85rem; }
-  .test-quote { font-family: var(--serif); font-weight: 500; font-size: 1.05rem; line-height: 1.45; color: var(--ink); margin-bottom: 1rem; }
-  .test-quote::before { content: '"'; color: var(--brand); }
-  .test-quote::after { content: '"'; color: var(--brand); }
-  .test-author { font-size: 0.85rem; color: var(--muted); font-weight: 500; }
-
-  /* FAQ */
-  .faq-list { margin-top: 2rem; max-width: 820px; }
-  .faq-item { background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; margin-bottom: 0.65rem; overflow: hidden; }
-  .faq-q { padding: 1.15rem 1.5rem; font-weight: 600; font-size: 1.02rem; color: var(--ink); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
-  .faq-q::after { content: '+'; font-family: var(--serif); font-weight: 700; font-size: 1.5rem; color: var(--brand); transition: transform 0.2s; }
-  details[open] .faq-q::after { transform: rotate(45deg); }
-  .faq-a { padding: 0 1.5rem 1.25rem; color: var(--ink-2); line-height: 1.6; font-size: 0.97rem; }
-
-  /* CONTACT */
-  .contact { background: var(--brand); color: #fff; padding: 5rem 0; }
-  .contact-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 3rem; align-items: start; }
-  @media (max-width: 820px) { .contact-grid { grid-template-columns: 1fr; gap: 2rem; } }
-  .contact-info .section-eyebrow { color: var(--accent); background: rgba(255,255,255,0.08); padding: 0.35rem 0.85rem; border-radius: 999px; }
-  .contact-info h2 { color: #fff; }
-  .contact-info .section-lead { color: rgba(255,255,255,0.85); }
-  .contact-details { margin-top: 1.5rem; }
-  .contact-detail { display: flex; align-items: start; gap: 0.85rem; margin-bottom: 1rem; }
-  .contact-detail svg { width: 22px; height: 22px; color: var(--accent); flex-shrink: 0; margin-top: 2px; }
-  .contact-detail strong { display: block; font-size: 1.05rem; font-weight: 600; color: #fff; line-height: 1.2; }
-  .contact-detail span { display: block; font-size: 0.88rem; color: rgba(255,255,255,0.75); margin-top: 2px; }
-  .contact-form { background: var(--surface); padding: 2rem; border-radius: 14px; }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; margin-bottom: 0.85rem; }
-  @media (max-width: 520px) { .form-row { grid-template-columns: 1fr; } }
-  .form-field { display: flex; flex-direction: column; gap: 0.35rem; }
-  .form-field.full { grid-column: 1 / -1; }
-  .form-field label { font-size: 0.82rem; font-weight: 600; color: var(--ink); }
-  .form-field input, .form-field select, .form-field textarea { padding: 0.7rem 0.9rem; border: 1px solid var(--rule); border-radius: 7px; font-family: var(--sans); font-size: 0.95rem; color: var(--ink); background: var(--bg); }
-  .form-field input:focus, .form-field select:focus, .form-field textarea:focus { outline: none; border-color: var(--brand); }
-  .form-field textarea { min-height: 90px; resize: vertical; }
-  .contact-form .btn-primary { width: 100%; justify-content: center; margin-top: 0.5rem; padding: 1.05rem; font-size: 1.02rem; }
-  .form-disclaim { font-size: 0.78rem; color: var(--muted); text-align: center; margin-top: 0.85rem; }
-
-  /* FOOTER */
-  footer { background: var(--ink); color: #fff; padding: 3rem 0 1.5rem; }
-  .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 2.5rem; margin-bottom: 2.5rem; }
-  @media (max-width: 720px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 1.5rem; } }
-  @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
-  footer h4 { font-family: var(--serif); font-weight: 600; font-size: 1rem; color: #fff; margin-bottom: 0.85rem; }
-  footer p, footer li { font-size: 0.88rem; color: rgba(255,255,255,0.7); line-height: 1.5; }
-  footer ul { list-style: none; }
-  footer ul li { margin-bottom: 0.35rem; }
-  footer ul li a { color: rgba(255,255,255,0.7); }
-  footer ul li a:hover { color: var(--accent); }
-  footer .logo-text { color: #fff; }
-  footer .logo-text small { color: rgba(255,255,255,0.5); }
-  footer .footer-bottom { padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: 0.82rem; color: rgba(255,255,255,0.5); }
-
-  /* HELPER */
-  .center { text-align: center; }
-  .text-center-section { text-align: center; }
-  .text-center-section .section-lead { margin-left: auto; margin-right: auto; }
-</style>
+<link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
 
 <!-- HEADER -->
 <header class="header">
   <div class="wrap">
-    <a href="#" class="logo">
+    <a href="/" class="logo">
       <span class="logo-mark">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9-4 9 4M3 7v10l9 4 9-4V7M3 7l9 4 9-4M12 11v10"/></svg>
       </span>
       <span class="logo-text">Pueblo Carpet Pros<small>Carpet Cleaning Pueblo CO</small></span>
     </a>
     <nav class="header-nav">
-      <a href="#services" class="nav-link">Services</a>
-      <a href="#pricing" class="nav-link">Pricing</a>
-      <a href="#service-area" class="nav-link">Service Area</a>
-      <a href="#contact" class="nav-link">Get a Quote</a>
-      <a href="#contact" class="phone-btn">
+      <a href="/#services" class="nav-link">Services</a>
+      <a href="/carpet-cleaning-cost-pueblo/" class="nav-link">Pricing</a>
+      <a href="/#service-area" class="nav-link">Service Area</a>
+      <a href="/#contact" class="nav-link">Get a Quote</a>
+      <a href="/#contact" class="phone-btn">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         Get a Free Quote
       </a>
@@ -304,7 +92,7 @@
     <div class="hero-grid">
       <div>
         <span class="hero-eyebrow">Serving Pueblo &amp; Surrounding Areas</span>
-        <h1>Fresh, clean carpets — <span>done right</span> in Pueblo.</h1>
+        <h1>Fresh, clean carpets, <span>done right</span> in Pueblo.</h1>
         <p class="sub">Local carpet cleaning service for Pueblo homes and businesses. Free, no-obligation quotes. Same-day appointments when available. Residential, commercial, pet stain removal, and upholstery cleaning across the Pueblo area.</p>
         <div class="hero-ctas">
           <a href="#contact" class="btn-primary">
@@ -382,7 +170,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 5.172C10 3.782 8.423 2.679 6.5 3.061 4.577 3.443 3 5.024 3 6.5c0 4.5 4 7.5 9 11.5 5-4 9-7 9-11.5 0-1.476-1.577-3.057-3.5-3.439C15.577 2.679 14 3.782 14 5.172"/></svg>
         </div>
         <h3>Pet Stain &amp; Odor Removal</h3>
-        <p>Specialized enzyme treatments for pet urine, vomit, and persistent odors. Pet-safe and family-friendly solutions that actually eliminate the smell — not just mask it.</p>
+        <p>Specialized enzyme treatments for pet urine, vomit, and persistent odors. Pet-safe and family-friendly solutions that actually eliminate the smell, not just mask it.</p>
         <div class="price"><a href="#contact"><strong>Get a free quote →</strong></a></div>
       </div>
 
@@ -391,7 +179,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v3"/><path d="M2 11v5a2 2 0 0 0 2 2v2"/><path d="M22 11v5a2 2 0 0 1-2 2v2"/><path d="M4 18h16"/><path d="M2 11h20"/></svg>
         </div>
         <h3>Upholstery &amp; Mattress Cleaning</h3>
-        <p>Sofas, recliners, dining chairs, mattresses — extend the life of your furniture with the same care we put into carpets. Often paired with a carpet job for a whole-room refresh.</p>
+        <p>Sofas, recliners, dining chairs, and mattresses. Extend the life of your furniture with the same care we put into carpets. Often paired with a carpet job for a whole-room refresh.</p>
         <div class="price"><a href="#contact"><strong>Get a free quote →</strong></a></div>
       </div>
 
@@ -400,7 +188,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 12h18M12 3v18"/></svg>
         </div>
         <h3>Area &amp; Oriental Rug Cleaning</h3>
-        <p>From synthetic area rugs to wool and antique oriental pieces — careful treatment that preserves colors and fiber integrity. On-site or off-site service depending on the rug.</p>
+        <p>From synthetic area rugs to wool and antique oriental pieces. Careful treatment that preserves colors and fiber integrity. On-site or off-site service depending on the rug.</p>
         <div class="price"><a href="#contact"><strong>Get a free quote →</strong></a></div>
       </div>
 
@@ -421,7 +209,7 @@
   <div class="wrap">
     <span class="section-eyebrow">Why Choose Us</span>
     <h2>Local service, honest work, fair pricing.</h2>
-    <p class="section-lead">We're not a national franchise. We're not a faceless 800 number. We're focused on doing right by Pueblo homeowners and businesses — one job at a time.</p>
+    <p class="section-lead">We're not a national franchise. We're not a faceless 800 number. We're focused on doing right by Pueblo homeowners and businesses, one job at a time.</p>
 
     <div class="why-grid">
       <div class="why-item">
@@ -434,7 +222,7 @@
       </div>
       <div class="why-item">
         <h4>Pueblo-based service</h4>
-        <p>We know Pueblo neighborhoods — Bessemer, Belmont, Mesa Junction, University Park, South Side, Pueblo West, and the surrounding area.</p>
+        <p>We know Pueblo neighborhoods like Bessemer, Belmont, Mesa Junction, University Park, South Side, Pueblo West, and the surrounding area.</p>
       </div>
       <div class="why-item">
         <h4>Free, no-obligation quotes</h4>
@@ -463,7 +251,7 @@
       <div class="step">
         <div class="step-num">1</div>
         <h4>Get a Quote</h4>
-        <p>Call us or fill out the contact form. Tell us about your space — number of rooms, type of carpet, any specific concerns. We'll give you a clear price upfront.</p>
+        <p>Call us or fill out the contact form. Tell us about your space: number of rooms, type of carpet, any specific concerns. We'll give you a clear price upfront.</p>
       </div>
       <div class="step">
         <div class="step-num">2</div>
@@ -484,16 +272,16 @@
   <div class="wrap">
     <span class="section-eyebrow">Why It Matters</span>
     <h2>Why professional carpet cleaning matters.</h2>
-    <p class="section-lead">Carpets are one of the bigger investments in your home — and they take more daily abuse than almost any other surface. Regular professional cleaning protects that investment in three meaningful ways.</p>
+    <p class="section-lead">Carpets are one of the bigger investments in your home, and they take more daily abuse than almost any other surface. Regular professional cleaning protects that investment in three meaningful ways.</p>
 
     <div class="why-grid">
       <div class="why-item">
         <h4>Prolong the life of your carpets</h4>
-        <p>Ground-in dirt and grit wear down carpet fibers from the bottom up — a process you can't see until it's too late. Professional cleaning extracts that abrasive debris and can add years to your carpet's life. Most carpet manufacturers recommend professional cleaning at least once or twice a year to maintain warranties.</p>
+        <p>Ground-in dirt and grit wear down carpet fibers from the bottom up, a process you can't see until it's too late. Professional cleaning extracts that abrasive debris and can add years to your carpet's life. Most carpet manufacturers recommend professional cleaning at least once or twice a year to maintain warranties.</p>
       </div>
       <div class="why-item">
         <h4>Improve indoor air quality</h4>
-        <p>Carpets trap airborne pollutants — dust, pet dander, pollen, dust mites, and other irritants. Over time these accumulate and recirculate into the air your family breathes. Deep cleaning removes contaminants that vacuuming alone can't reach, which matters most for households with kids, pets, or anyone with allergies or asthma.</p>
+        <p>Carpets trap airborne pollutants like dust, pet dander, pollen, dust mites, and other irritants. Over time these accumulate and recirculate into the air your family breathes. Deep cleaning removes contaminants that vacuuming alone can't reach, which matters most for households with kids, pets, or anyone with allergies or asthma.</p>
       </div>
       <div class="why-item">
         <h4>Make a great first impression</h4>
@@ -508,7 +296,7 @@
   <div class="wrap">
     <span class="section-eyebrow">Our Services, Explained</span>
     <h2>What we do, in detail.</h2>
-    <p class="section-lead">Each service we offer to Pueblo homes and businesses, walked through plainly — what's involved, what to expect, and when it makes sense.</p>
+    <p class="section-lead">Each service we offer to Pueblo homes and businesses, walked through plainly: what's involved, what to expect, and when it makes sense.</p>
 
     <div style="margin-top: 3rem;">
 
@@ -520,9 +308,9 @@
         <div class="sd-content">
           <span class="sd-eyebrow">Residential</span>
           <h3>Residential Carpet Cleaning in Pueblo</h3>
-          <p>Few things change how a home feels like freshly cleaned carpets. Whether you're dealing with traffic patterns in the family room, lingering odors in the basement, or just looking to refresh your space, professional residential carpet cleaning restores the carpet you remember bringing home from the store. We help Pueblo homeowners protect what's often one of the more expensive parts of a home — and extend the life of carpets that get more wear than almost any other surface.</p>
-          <p>Daily life is hard on carpets. Pets, kids, foot traffic, dust from outside, spills that get half-cleaned and forgotten — it all builds up below the surface where vacuums can't reach. Renting a machine from the hardware store gets you part of the way there, but professional-grade hot water extraction equipment pulls out the embedded soil, allergens, and residue that home equipment leaves behind. The difference shows up in how the carpet looks, smells, and feels under your feet.</p>
-          <p>Every residential job starts with a look at what we're actually working with — the carpet type, the condition, any problem areas — so we can use the right combination of cleaning solution, pressure, and dry time. Most rooms are dry within 4-6 hours and ready for normal use the same day. We work with homes across Pueblo and the surrounding neighborhoods, from older homes in Bessemer and Belmont to newer construction in Pueblo West.</p>
+          <p>Few things change how a home feels like freshly cleaned carpets. Whether you're dealing with traffic patterns in the family room, lingering odors in the basement, or just looking to refresh your space, professional residential carpet cleaning restores the carpet you remember bringing home from the store. We help Pueblo homeowners protect what's often one of the more expensive parts of a home, and extend the life of carpets that get more wear than almost any other surface.</p>
+          <p>Daily life is hard on carpets. Pets, kids, foot traffic, dust from outside, spills that get half-cleaned and forgotten: it all builds up below the surface where vacuums can't reach. Renting a machine from the hardware store gets you part of the way there, but professional-grade hot water extraction equipment pulls out the embedded soil, allergens, and residue that home equipment leaves behind. The difference shows up in how the carpet looks, smells, and feels under your feet.</p>
+          <p>Every residential job starts with a look at what we're actually working with, including the carpet type, the condition, and any problem areas, so we can use the right combination of cleaning solution, pressure, and dry time. Most rooms are dry within 4-6 hours and ready for normal use the same day. We work with homes across Pueblo and the surrounding neighborhoods, from older homes in Bessemer and Belmont to newer construction in Pueblo West.</p>
           <a href="#contact" class="sd-cta">Get a quote for your home <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
         </div>
       </div>
@@ -535,9 +323,9 @@
         <div class="sd-content">
           <span class="sd-eyebrow">Commercial</span>
           <h3>Commercial Carpet Cleaning for Pueblo Businesses</h3>
-          <p>First impressions matter, and in most businesses the floor is the first thing a visitor sees. Clean carpets signal that you care about your space — and by extension, your customers. Dingy traffic patterns and worn-looking lobbies send the opposite message, even when everything else is spotless.</p>
-          <p>Commercial carpet sees several times the foot traffic of residential carpet, which means it accumulates dirt and wears down much faster if it isn't maintained. Regular professional cleaning is the difference between a carpet that needs replacement every few years and one that holds up for a decade or more. For Pueblo businesses, we work around your schedule — after-hours, weekends, or whenever causes the least disruption to your operation.</p>
-          <p>We serve a range of commercial spaces: offices, medical and dental practices, retail stores, restaurants, churches, senior living facilities, and property management groups handling apartment buildings or rental homes. Recurring service plans — quarterly, semi-annual, or custom intervals — are available and typically cost less per visit than one-off cleanings while keeping your space consistently looking its best.</p>
+          <p>First impressions matter, and in most businesses the floor is the first thing a visitor sees. Clean carpets signal that you care about your space, and by extension, your customers. Dingy traffic patterns and worn-looking lobbies send the opposite message, even when everything else is spotless.</p>
+          <p>Commercial carpet sees several times the foot traffic of residential carpet, which means it accumulates dirt and wears down much faster if it isn't maintained. Regular professional cleaning is the difference between a carpet that needs replacement every few years and one that holds up for a decade or more. For Pueblo businesses, we work around your schedule, whether after-hours, weekends, or whenever causes the least disruption to your operation.</p>
+          <p>We serve a range of commercial spaces: offices, medical and dental practices, retail stores, restaurants, churches, senior living facilities, and property management groups handling apartment buildings or rental homes. Recurring service plans (quarterly, semi-annual, or custom intervals) are available and typically cost less per visit than one-off cleanings while keeping your space consistently looking its best.</p>
           <a href="#contact" class="sd-cta">Get a commercial quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
         </div>
       </div>
@@ -550,7 +338,7 @@
         <div class="sd-content">
           <span class="sd-eyebrow">Pet Stain &amp; Odor</span>
           <h3>Pet Stain &amp; Odor Removal</h3>
-          <p>Pets are family, but they leave behind challenges that ordinary cleaning doesn't solve. Pet urine doesn't just sit on the surface — it permeates down into the carpet backing, the padding underneath, and sometimes the subfloor. That's why pet odors return a few days after a regular cleaning: the cleaning addressed what's visible, not what's underneath.</p>
+          <p>Pets are family, but they leave behind challenges that ordinary cleaning doesn't solve. Pet urine doesn't just sit on the surface. It permeates down into the carpet backing, the padding underneath, and sometimes the subfloor. That's why pet odors return a few days after a regular cleaning: the cleaning addressed what's visible, not what's underneath.</p>
           <p>Professional pet odor removal uses enzyme-based treatments that break down the proteins in urine at the molecular level. The enzymes consume the source of the smell rather than masking it with fragrance. For old or severe accidents, this may mean treating the padding directly or using higher concentrations of solution. The good news: in most cases, even longstanding pet odor can be fully eliminated rather than just covered up.</p>
           <p>The same approach works for pet vomit, hairball stains, accidents from kittens or puppies during housetraining, and the general dander buildup that all pet households contend with. Treatments are formulated to be safe for pets and family members once the carpet has fully dried.</p>
           <a href="#contact" class="sd-cta">Get a pet stain quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
@@ -565,9 +353,9 @@
         <div class="sd-content">
           <span class="sd-eyebrow">Upholstery &amp; Mattress</span>
           <h3>Upholstery &amp; Mattress Cleaning</h3>
-          <p>Furniture and mattresses see plenty of use but rarely get the same cleaning attention as carpets. Over time, sofas absorb body oils, food crumbs, dust, and pet hair. Mattresses accumulate dust mites, allergens, and the residue of years of sleep. Replacing this furniture is expensive — cleaning it brings most of it back to looking and feeling close to new.</p>
+          <p>Furniture and mattresses see plenty of use but rarely get the same cleaning attention as carpets. Over time, sofas absorb body oils, food crumbs, dust, and pet hair. Mattresses accumulate dust mites, allergens, and the residue of years of sleep. Replacing this furniture is expensive. Cleaning it brings most of it back to looking and feeling close to new.</p>
           <p>Different fabrics need different approaches. A microfiber sofa cleans up differently than a linen-blend couch or a leather recliner. Mattresses need careful moisture control to avoid mold. We look at every piece individually and use the cleaning method that's right for the fabric and the level of soiling, rather than running everything through the same process.</p>
-          <p>We clean sofas, loveseats, recliners, dining chairs, ottomans, and mattresses of all sizes. Upholstery work is often paired with a residential carpet job for a full-room refresh — the difference between just the carpet and the carpet plus furniture is dramatic.</p>
+          <p>We clean sofas, loveseats, recliners, dining chairs, ottomans, and mattresses of all sizes. Upholstery work is often paired with a residential carpet job for a full-room refresh. The difference between just the carpet and the carpet plus furniture is dramatic.</p>
           <a href="#contact" class="sd-cta">Get an upholstery quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
         </div>
       </div>
@@ -582,7 +370,7 @@
           <h3>Area &amp; Oriental Rug Cleaning</h3>
           <p>Area rugs deserve more attention than they usually get. They protect the floor underneath, anchor the room visually, and absorb a disproportionate share of foot traffic. Wall-to-wall carpet has padding underneath; area rugs sit directly on the floor and accumulate dirt that can grind down the fibers over time.</p>
           <p>Different rugs need different care. Synthetic area rugs can usually be cleaned in place using hot water extraction. Wool, silk, and antique oriental rugs typically benefit from a more careful approach with appropriate solutions to preserve the dyes and fiber integrity. Some rugs we clean on-site; others are better cleaned off-site in a controlled environment.</p>
-          <p>Color preservation is a big part of why professional cleaning matters for area rugs — the wrong solution can cause dye bleeding or fading, especially in older or hand-knotted rugs. We assess each rug before cleaning and let you know if we recommend on-site service or a different approach. Honesty about what we can and can't safely clean is part of how we do business.</p>
+          <p>Color preservation is a big part of why professional cleaning matters for area rugs. The wrong solution can cause dye bleeding or fading, especially in older or hand-knotted rugs. We assess each rug before cleaning and let you know if we recommend on-site service or a different approach. Honesty about what we can and can't safely clean is part of how we do business.</p>
           <a href="#contact" class="sd-cta">Get an area rug quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
         </div>
       </div>
@@ -595,8 +383,8 @@
         <div class="sd-content">
           <span class="sd-eyebrow">Tile &amp; Grout</span>
           <h3>Tile &amp; Grout Cleaning</h3>
-          <p>Grout absorbs everything. Spills, foot traffic, cooking residue, soap film in bathrooms — it all settles into the porous grout lines and gradually darkens them. By the time most homeowners notice, mopping isn't enough to restore them; the dirt is below the surface, beyond what a mop can reach.</p>
-          <p>Professional tile and grout cleaning uses high-pressure hot water extraction with specialized tools designed to reach into grout lines and lift out the embedded dirt. The result is grout that looks closer to its original color — sometimes startlingly so when homeowners haven't seen it for years. Tiles get a deep clean at the same time, removing the film and dullness that builds up gradually.</p>
+          <p>Grout absorbs everything. Spills, foot traffic, cooking residue, soap film in bathrooms: it all settles into the porous grout lines and gradually darkens them. By the time most homeowners notice, mopping isn't enough to restore them; the dirt is below the surface, beyond what a mop can reach.</p>
+          <p>Professional tile and grout cleaning uses high-pressure hot water extraction with specialized tools designed to reach into grout lines and lift out the embedded dirt. The result is grout that looks closer to its original color, sometimes startlingly so when homeowners haven't seen it for years. Tiles get a deep clean at the same time, removing the film and dullness that builds up gradually.</p>
           <p>After cleaning, we can apply a grout sealer to protect against future staining. Sealed grout doesn't absorb spills the same way, which makes regular maintenance much easier and keeps the floor looking cleaner longer. We work on kitchen floors, bathrooms, entryways, and any tiled surface that's gotten dingier than you'd like.</p>
           <a href="#contact" class="sd-cta">Get a tile &amp; grout quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
         </div>
@@ -613,7 +401,7 @@
       <div>
         <span class="section-eyebrow">Service Area</span>
         <h2>Serving Pueblo and the surrounding neighborhoods.</h2>
-        <p class="section-lead">We cover the city of Pueblo and the immediate surrounding communities. If you're not sure if you're in our service area, just give us a call — most of the Pueblo metro is covered, and we travel out for larger jobs.</p>
+        <p class="section-lead">We cover the city of Pueblo and the immediate surrounding communities. If you're not sure if you're in our service area, just give us a call. Most of the Pueblo metro is covered, and we travel out for larger jobs.</p>
         <a href="#contact" class="btn-primary">
           Check Your Service Area
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
@@ -645,7 +433,7 @@
   <div class="wrap">
     <span class="section-eyebrow">Our Cleaning Process</span>
     <h2>How we deep clean your carpets, step by step.</h2>
-    <p class="section-lead">Every job follows the same proven hot-water-extraction process — the method most carpet manufacturers recommend for keeping carpets in warranty and lasting longer.</p>
+    <p class="section-lead">Every job follows the same proven hot-water-extraction process, the method most carpet manufacturers recommend for keeping carpets in warranty and lasting longer.</p>
 
     <div class="steps-grid-4">
       <div class="step">
@@ -661,7 +449,7 @@
       <div class="step">
         <div class="step-num">3</div>
         <h4>Extract &amp; Rinse</h4>
-        <p>High-powered hot-water extraction equipment injects clean water deep into the carpet and immediately extracts it along with the dirt, allergens, and cleaning residue — leaving carpets thoroughly cleaned and freshly rinsed.</p>
+        <p>High-powered hot-water extraction equipment injects clean water deep into the carpet and immediately extracts it along with the dirt, allergens, and cleaning residue, leaving carpets thoroughly cleaned and freshly rinsed.</p>
       </div>
       <div class="step">
         <div class="step-num">4</div>
@@ -682,7 +470,7 @@
     <div class="faq-list">
       <details class="faq-item">
         <summary class="faq-q">How much does carpet cleaning cost in Pueblo?</summary>
-        <div class="faq-a">Pricing depends on several factors: the number of rooms or total square footage, type of carpet, condition (light maintenance vs. heavy soiling), and any specialty treatments needed like pet stain or odor removal. Every job is quoted individually after we understand what's actually involved. Quotes are always free, no-obligation, and given upfront so there are no surprises when we arrive. Call or fill out the form for a quick quote.</div>
+        <div class="faq-a">Pricing depends on several factors: the number of rooms or total square footage, type of carpet, condition (light maintenance vs. heavy soiling), and any specialty treatments needed like pet stain or odor removal. Every job is quoted individually after we understand what's actually involved. Quotes are always free, no-obligation, and given upfront so there are no surprises when we arrive. For a detailed breakdown of what affects pricing and what national industry averages look like, see our <a href="/carpet-cleaning-cost-pueblo/">Pueblo carpet cleaning pricing guide</a>, or fill out the form for a quick quote.</div>
       </details>
       <details class="faq-item">
         <summary class="faq-q">How long does carpet cleaning take?</summary>
@@ -690,14 +478,14 @@
       </details>
       <details class="faq-item">
         <summary class="faq-q">How long until I can walk on my carpets?</summary>
-        <div class="faq-a">Carpets are usually dry within 4-6 hours of cleaning. You can walk on them right away in clean socks or bare feet, but we recommend keeping pets and outside shoes off until fully dry — usually by the end of the day. Drying time depends on humidity, ventilation, and carpet thickness.</div>
+        <div class="faq-a">Carpets are usually dry within 4-6 hours of cleaning. You can walk on them right away in clean socks or bare feet, but we recommend keeping pets and outside shoes off until fully dry, usually by the end of the day. Drying time depends on humidity, ventilation, and carpet thickness.</div>
       </details>
       <details class="faq-item">
         <summary class="faq-q">Do you move furniture?</summary>
-        <div class="faq-a">We move small to medium furniture (chairs, end tables, light couches) as part of standard service. Heavy or built-in furniture (bookcases, beds, pianos) typically stays put and we clean around them. Let us know if you'd like a specific arrangement when you book — we can plan for it.</div>
+        <div class="faq-a">We move small to medium furniture (chairs, end tables, light couches) as part of standard service. Heavy or built-in furniture (bookcases, beds, pianos) typically stays put and we clean around them. Let us know if you'd like a specific arrangement when you book. We can plan for it.</div>
       </details>
       <details class="faq-item">
-        <summary class="faq-q">What cleaning method do you use — steam or dry?</summary>
+        <summary class="faq-q">What cleaning method do you use, steam or dry?</summary>
         <div class="faq-a">We primarily use hot water extraction (often called "steam cleaning"), which is the method most carpet manufacturers recommend for keeping warranties valid. For situations where fast dry time matters (commercial spaces during business hours, low-pile commercial carpets), low-moisture methods are available on request.</div>
       </details>
       <details class="faq-item">
@@ -706,7 +494,7 @@
       </details>
       <details class="faq-item">
         <summary class="faq-q">Are the cleaning products safe for pets and kids?</summary>
-        <div class="faq-a">Yes. Standard treatments are pet- and family-friendly when used as directed and after the carpet has dried. Eco-friendly and fragrance-free options are available on request — just let us know when you book.</div>
+        <div class="faq-a">Yes. Standard treatments are pet- and family-friendly when used as directed and after the carpet has dried. Eco-friendly and fragrance-free options are available on request. Just let us know when you book.</div>
       </details>
       <details class="faq-item">
         <summary class="faq-q">Do you offer move-in or move-out carpet cleaning?</summary>
@@ -804,21 +592,21 @@
   <div class="wrap">
     <div class="footer-grid">
       <div>
-        <a href="#" class="logo">
+        <a href="/" class="logo">
           <span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9-4 9 4M3 7v10l9 4 9-4V7M3 7l9 4 9-4M12 11v10"/></svg></span>
           <span class="logo-text">Pueblo Carpet Pros<small>Carpet Cleaning Pueblo CO</small></span>
         </a>
-        <p style="margin-top: 1rem;">Local Pueblo carpet cleaning service. Residential, commercial, and pet stain removal across Pueblo and the surrounding neighborhoods. Free quotes, honest pricing, satisfaction guaranteed.</p>
+        <p style="margin-top: 1rem;">Local Pueblo carpet cleaning service. Residential, commercial, and pet stain removal across Pueblo and the surrounding neighborhoods. Free quotes, satisfaction guaranteed.</p>
       </div>
       <div>
         <h4>Services</h4>
         <ul>
-          <li><a href="#services">Residential Cleaning</a></li>
-          <li><a href="#services">Commercial Cleaning</a></li>
-          <li><a href="#services">Pet Stain &amp; Odor</a></li>
-          <li><a href="#services">Upholstery &amp; Mattress</a></li>
-          <li><a href="#services">Area Rug Cleaning</a></li>
-          <li><a href="#services">Tile &amp; Grout</a></li>
+          <li><a href="/#services">Residential Cleaning</a></li>
+          <li><a href="/#services">Commercial Cleaning</a></li>
+          <li><a href="/#services">Pet Stain &amp; Odor</a></li>
+          <li><a href="/#services">Upholstery &amp; Mattress</a></li>
+          <li><a href="/#services">Area Rug Cleaning</a></li>
+          <li><a href="/#services">Tile &amp; Grout</a></li>
         </ul>
       </div>
       <div>
@@ -836,8 +624,9 @@
         <h4>Contact</h4>
         <ul>
           <li><a href="mailto:contact@pueblocarpetpros.com">contact@pueblocarpetpros.com</a></li>
+          <li><a href="/carpet-cleaning-cost-pueblo/">Pricing Guide</a></li>
           <li>Mon-Sat · 8am-6pm</li>
-          <li><a href="#contact">Get a Free Quote</a></li>
+          <li><a href="/#contact">Get a Free Quote</a></li>
         </ul>
       </div>
     </div>
